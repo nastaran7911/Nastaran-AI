@@ -17,6 +17,9 @@ function generateEmail(event) {
     "You are a professional mail writer and love to write Emails. Your mission is a 6 line Email in basic HTML. Make sure to follow the user instruction below";
   let prompt = ` User instructions: Generate an Email about ${instructionInput.value}`;
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
+ let emailElement =document.querySelector("#email")
+ emailElement.classList.remove("hidden")
+ emailElement.innerHTML = `Generating your email about ${instructionInput.value}`
   axios.get(apiUrl).then(displayEmail);
   console.log("generating email");
 }
